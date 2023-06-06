@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript EX: 2</title>
+    <style>/*----------CSS----------*/
+        *{
+            background-color: #edf6f9;
+            font-family: 'Geologica', sans-serif;
+            font-weight: bold;
+        }
+        .btn{
+            font-weight: bold;
+            background-color: rgb(112, 195, 255);
+            padding: 12px;
+            border-radius: 20px;
+        }
+        body {
+            position: fixed;
+            top: 350px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body><!----------HTML---------->
+    <center>
+        <h1 id="cab1">Calculador de IMC</h1>
+        <label for="weight">Informe o seu peso: (Exemplo: 140)</label>
+        <input type="number" id="weight">
+        <br>
+        <label for="height">Informe a sua altura: (Exemplo: 1,75)</label>
+        <input type="number" id="height">
+        <br>
+        <button class="btn" onclick="calcularIMC()">Calcular IMC</button>
+    </center>
+    <script>/*----------JAVASCRIPT----------*/
+        function calcularIMC() {
+            var weightInput = document.getElementById('weight');
+            var heightInput = document.getElementById('height');
+            var weight = parseFloat(weightInput.value);
+            var height = parseFloat(heightInput.value);
+            var imc = weight / (height ** 2);
+            var frase, color;
+
+            if (imc < 17) {
+                frase = "com o peso Muito Abaixo do Ideal";
+                color = "red";
+            } else if (imc >= 17 && imc <= 18.49) {
+                frase = "abaixo do Peso";
+                color = "orange";
+            } else if (imc >= 18.50 && imc <= 24.99) {
+                frase = "com o peso Normal";
+                color = "green";
+            } else if (imc >= 25 && imc <= 29.99) {
+                frase = "acima do Peso";
+                color = "orange";
+            } else if (imc >= 30 && imc <= 34.99) {
+                frase = "com obesidade I, procure um médico";
+                color = "red";
+            } else if (imc >= 35 && imc <= 39.99) {
+                frase = "com obesidade II , procure um médico";
+                color = "red";
+            } else if (imc >= 40) {
+                frase = "com obesidade III, procure um médico";
+                color = "red";
+            }
+
+            var mensagem = "Seu IMC é: " + imc.toFixed(2) + ". Você está " + frase;
+            document.getElementById("cab1").innerHTML = mensagem;
+            document.getElementById("cab1").style.color = color;
+        }
+    </script>
+</body>
+</html>

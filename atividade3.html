@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        *{
+            background-color: #edf6f9;
+            font-family: 'Geologica', sans-serif;
+        }
+        .textinho{
+            background-color: white;
+        }
+        p, a, li{
+            font-weight: bold;
+        }
+        input{
+            border-radius: 20px;
+        }
+        .btn{
+            font-weight: bold;
+            background-color: rgb(112, 195, 255);
+            padding: 12px;
+            border-radius: 20px;
+        }
+    </style>
+<body>
+    <div>
+
+        <h1>Lista de compras</h1>
+        <ul id="myList">
+            <li>EX: banana</li>
+            <li>EX: placa de vídeo</li>
+        </ul>
+        <p>Clique em "Adicionar" para adicionar um item no final da lista:</p>
+        <input class="textinho" type="text" id="itemText">
+        <br>
+        
+        <p>Escolha uma cor:</p>
+        <input type="radio" name="cores" value="black"><a>Preto</a>
+        <input type="radio" name="cores" value="blue"> <a>Azul</a>
+        <input type="radio" name="cores" value="green"> <a>Verde</a>
+        <input type="radio" name="cores" value="red"> <a>Vermelho</a><br><br>
+        
+        <button class="btn" id="appendButton">Adicionar</button>
+    </div>
+<script>
+    document.getElementById("appendButton").addEventListener("click", function() {
+    const itemText = document.getElementById("itemText").value;
+    const selectedColor = document.querySelector('input[name="cores"]:checked').value;
+    const node = document.createElement("li");
+
+    node.style.color = selectedColor;
+    const textnode = document.createTextNode(itemText);
+    node.appendChild(textnode);
+    document.getElementById("myList").appendChild(node);
+});
+</script>
+
+</body>
+</html>

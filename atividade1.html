@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript EX: 1</title>
+    <style>/*----------CSS----------*/
+        *{
+        font-family: 'Geologica', sans-serif;
+        }
+        #APouREP { 
+            position : fixed;
+            top: 350px;
+            left:0px;
+            right:0px;
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body><!----------HTML---------->
+    <center><h1 id="APouREP">Aprovado ou Reprovado</h1></center>
+        <script>/*----------JAVASCRIPT----------*/
+            var note1 = prompt('Informe a nota do 1° Bimestre')
+            var note2 = prompt('Informe a nota do 2° Bimestre')
+            note1 = parseFloat(note1);
+            note2 = parseFloat(note2);
+            var media = (note1 + note2) / 2;
+            var frase, color;
+            
+            if (media >= 6) {
+                frase = "Aprovado";
+                color = "blue";
+            } else {
+                frase = "Reprovado";
+                color = "red";
+            }   
+           
+            var mensagem = "Sua média é " + media + ". Você está: " + frase;
+
+            document.getElementById("APouREP").innerHTML = mensagem;
+            document.getElementById("APouREP").style.color = color;
+
+            if (media >> 10) {
+                var mesagem = "ERRO, Talvez você tenha digitado errado!!!"
+                document.getElementById("APouREP").innerHTML = mensagem
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript EX: 1-2</title>
+    <style>/*----------CSS----------*/
+        *{
+            font-family: 'Geologica', sans-serif;
+            background-color: #edf6f9;
+            font-weight: bold;
+        }
+        input{
+            border-radius: 20px;
+        }
+        .btn{
+            font-weight: bold;
+            background-color: rgb(112, 195, 255);
+            padding: 12px;
+            border-radius: 20px;
+        }
+        body{
+            position: fixed;
+            top: 350px;
+            left:0px;
+            right:0px;
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body><!----------HTML---------->
+    <center><h1 id="mediaCalc">Calcular Média</h1>
+    <label for="note1">Informe a nota do 1° Bimestre:</label>
+    <input type="number" id="note1">
+    <br>
+    <label for="note2">Informe a nota do 2° Bimestre:</label>
+    <input type="number" id="note2">
+    <br>
+    <button class="btn" onclick="calcularMedia()">Calcular Média</button></center>
+<script>/*----------JAVASCRIPT----------*/
+
+    function calcularMedia() {
+        var note1Input = document.getElementById('note1');
+        var note2Input = document.getElementById('note2');
+        var note1 = parseFloat(note1Input.value);
+        var note2 = parseFloat(note2Input.value);
+        var media = (note1 + note2) / 2;
+        var frase, color;
+
+        if (media >= 6) {
+            frase = "Aprovado, muito bem!";
+            color = "blue";
+        } else {
+            frase = "Reprovado, estude mais!";
+            color = "red";
+        }
+        var mensagem = "Sua média é " + media + ". Você está: " + frase;
+        document.getElementById("mediaCalc").innerHTML = mensagem;
+        document.getElementById("mediaCalc").style.color = color;
+    }
+</script>
+</body>
+</html>
